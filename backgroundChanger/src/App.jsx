@@ -1,33 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
+const root=document.getElementById("#root")
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  const [color,setColor]=useState("black")
+  const changeColor=()=>{
+    const color=document.getElementsByClassName('btn').value.toLower()
+    setColor(color)
+  }
+  return(
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div style={{display:"flex", marginTop:"12px", marginLeft:"6px"}}>
+      <button className='btn' onClick={()=>{setColor("red")}} style={{width:"200px", height:"40px"}}>Red</button>
+      <button onClick={()=>{setColor("green")}} style={{width:"200px", height:"40px"}}>Green</button>
+      <button onClick={()=>{setColor("yellow")}} style={{width:"200px", height:"40px"}}>Yellow</button>
+      <button onClick={()=>{setColor("orange")}} style={{width:"200px", height:"40px"}}>Orange</button>
+      <button onClick={()=>{setColor("blue")}} style={{width:"200px", height:"40px"}}>Blue</button>
+      <button onClick={()=>{setColor("cyan")}} style={{width:"200px", height:"40px"}}>Cyan</button>
+      <button onClick={()=>{setColor("purple")}} style={{width:"200px", height:"40px"}}>Purple</button>
+    </div>
+    <div style={{backgroundColor:color, height:"600px", marginTop:"20px"}}>
+    </div>
     </>
   )
 }
